@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>sample shop</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="font-sans bg-gray-100">
     <header class="w-full">
-        <img class="h-64 w-full" src="images/headerbanner.png" alt="header banner">
+        <img style="object-fit: cover;" class="h-24 md:h-56 w-full" src="images/headerbanner.png" alt="header banner">
 
-        <div class="ml-4 mb-8">
-            <div class="logo h-32 -mt-16">
+        <div class="max-w-4xl mx-auto">
+            <div class="logo w-full mb-6 h-32 -mt-16">
                 <img class="border-4 border-white h-32 rounded-full" src="images/logo.jpg" alt="logo">
             </div>
         </div>
@@ -21,8 +21,8 @@
 
  
     <main class="max-w-4xl mx-auto">
-        <div class="w-full flex flex-start items-center my-2">
-            <input type="search" class="w-full ml-4 bg-purple-white shadow rounded border-0 p-3" placeholder="Search by name...">
+        <div class="w-full lg:w-3/4 flex flex-start items-center my-2">
+            <input type="search" class="w-full ml-2 bg-purple-white shadow rounded border-0 p-3" placeholder="Search by name...">
             <div class="text-purple-lighter mr-4 bg-purple-white shadow rounded border-0 p-4">
                 <svg version="1.1" class="h-4 text-dark bg-purple-white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 52.966 52.966" style="enable-background:new 0 0 52.966 52.966;" xml:space="preserve">
@@ -34,106 +34,149 @@
             </div>
         </div>
 
-        <div class="w-full mt-8">
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 grid-cols-2 gap-4">
-                <div class="ml-2 rounded-t-lg shadow-md bg-white">
-                    <img class="h-44 rounded-t-lg" src="images/headerbanner.png" alt="">
-                    <div class="m-2">
-                        <p class="text-green-500 font-semibold">Category</p>
-                        <p class="text-gray-700 font-semibold">Name</p>
-                        <p class="text-gray-700 mt-2 font-semibold">price</p>
-
-                        <button class="mt-2 rounded w-full text-center bg-green-500 text-white text-semibold p-2">View Details</button>
+        <div class="w-full lg:flex mt-8">
+            <div class="lg:w-3/4">
+                <div class="grid lg:grid-cols-3 grid-cols-2 gap-4">
+                    <div class="ml-2 rounded-t-lg shadow-md bg-white">
+                        <img class=" w-full rounded-t-lg" src="data:image/jpeg;base64,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" alt="">
+                        <div class="m-2">
+                            <p class="text-green-500 font-semibold">Category</p>
+                            <p class="text-gray-700 font-semibold">Name</p>
+                            <p class="text-gray-700 mt-2 font-semibold">price</p>
+    
+                            <a href="shop_detail.html" class="mt-2 rounded w-full text-center bg-green-500 text-white text-semibold p-2 inline-block">View Details</a>
+                        </div>
+                    </div>
+    
+                    <div class="mr-2 shadow-md rounded-t-lg  bg-white">
+                        <img class=" w-full rounded-t-lg" src="data:image/jpeg;base64,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" alt="">
+                        <div class="m-2">
+                            <p class="text-green-500 font-semibold">Category</p>
+                            <p class="text-gray-700 font-semibold">Name</p>
+                            <p class="text-gray-700 mt-2 font-semibold">price</p>
+    
+                            <button class="mt-2 rounded w-full text-center bg-green-500 text-white text-semibold p-2">View Details</button>
+                        </div>
+                    </div>
+    
+                    <div class="ml-2 lg:ml-0 shadow-md rounded-t-lg bg-white">
+                        <img class="w-full rounded-t-lg" src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/6e589c42-3bdc-443f-9fa9-9cfc68707483/sportswear-t-shirt-VlfSMX.png" alt="">
+                        <div class="m-2">
+                            <p class="text-green-500 font-semibold">Category</p>
+                            <p class="text-gray-700 font-semibold">Name</p>
+                            <p class="text-gray-700 mt-2 font-semibold">price</p>
+    
+                            <button class="mt-2 rounded w-full text-center bg-green-500 text-white text-semibold p-2">View Details</button>
+                        </div>
+                    </div>
+    
+                    <div class="mr-2 lg:ml-2 lg:mr-0 shadow-md rounded-t-lg bg-white">
+                        <img class="h-44 rounded-t-lg" src="images/headerbanner.png" alt="">
+                        <div class="m-2">
+                            <p class="text-green-500 font-semibold">Category</p>
+                            <p class="text-gray-700 font-semibold">Name</p>
+                            <p class="text-gray-700 mt-2 font-semibold">price</p>
+    
+                            <button class="mt-2 rounded w-full text-center bg-green-500 text-white text-semibold p-2">View Details</button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="mr-2 shadow-md rounded-t-lg  bg-white">
-                    <img class="h-44 rounded-t-lg" src="images/headerbanner.png" alt="">
-                    <div class="m-2">
-                        <p class="text-green-500 font-semibold">Category</p>
-                        <p class="text-gray-700 font-semibold">Name</p>
-                        <p class="text-gray-700 mt-2 font-semibold">price</p>
-
-                        <button class="mt-2 rounded w-full text-center bg-green-500 text-white text-semibold p-2">View Details</button>
-                    </div>
+                <!-- component -->
+                <div class="mx-4">
+                    <nav class="mt-4 mb-4 flex flex-row flex-nowrap justify-between md:justify-center items-center" aria-label="Pagination">
+                        <a class="flex w-10 h-10 mr-1 justify-center items-center rounded-full border border-gray-200 bg-white text-black hover:border-gray-300" href="#" title="Previous Page">
+                            <span class="sr-only">Previous Page</span>
+                            <svg class="block w-4 h-4 fill-current" viewBox="0 0 256 512" aria-hidden="true" role="presentation">
+                                <path d="M238.475 475.535l7.071-7.07c4.686-4.686 4.686-12.284 0-16.971L50.053 256 245.546 60.506c4.686-4.686 4.686-12.284 0-16.971l-7.071-7.07c-4.686-4.686-12.284-4.686-16.97 0L10.454 247.515c-4.686 4.686-4.686 12.284 0 16.971l211.051 211.05c4.686 4.686 12.284 4.686 16.97-.001z"></path>
+                            </svg>
+                        </a>
+                        <a class="hidden md:flex w-10 h-10 mx-1 justify-center items-center rounded-full border border-gray-200 bg-white text-black hover:border-gray-300" href="#" title="Page 1">
+                            1
+                        </a>
+                        <a class="hidden md:flex w-10 h-10 mx-1 justify-center items-center rounded-full border border-gray-200 bg-white text-black hover:border-gray-300" href="#" title="Page 2">
+                            2
+                        </a>
+                        <a class="hidden md:flex w-10 h-10 mx-1 justify-center items-center rounded-full border border-black bg-black text-white pointer-events-none" href="#" aria-current="page" title="Page 3">
+                            3
+                        </a>
+                        <a class="hidden md:flex w-10 h-10 mx-1 justify-center items-center rounded-full border border-gray-200 bg-white text-black hover:border-gray-300" href="#" title="Page 4">
+                            4
+                        </a>
+                        <a class="hidden md:flex w-10 h-10 mx-1 justify-center items-center rounded-full border border-gray-200 bg-white text-black hover:border-gray-300" href="#" title="Page 5">
+                            5
+                        </a>
+                        <a class="flex w-10 h-10 ml-1 justify-center items-center rounded-full border border-gray-200 bg-white text-black hover:border-gray-300" href="#" title="Next Page">
+                            <span class="sr-only">Next Page</span>
+                            <svg class="block w-4 h-4 fill-current" viewBox="0 0 256 512" aria-hidden="true" role="presentation">
+                                <path d="M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z"></path>
+                            </svg>
+                        </a>
+                    </nav>
                 </div>
+                
+                
+            </div>
+           
 
-                <div class="ml-2 shadow-md rounded-t-lg bg-white">
-                    <img class="h-44 rounded-t-lg" src="images/headerbanner.png" alt="">
-                    <div class="m-2">
-                        <p class="text-green-500 font-semibold">Category</p>
-                        <p class="text-gray-700 font-semibold">Name</p>
-                        <p class="text-gray-700 mt-2 font-semibold">price</p>
+            <div class="lg:w-1/4 mx-2">
+                <div class="w-full shadow-md bg-white rounded lg:mt-0 mt-4 p-4">
+                    <h1 class="text-1xl font-bold text-gray-900 capitalize">About Shop</h1>
+                    <p class="text-gray-500 leading-tight text-base">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque veritatis repudiandae nemo tenetur ut. A debitis optio consequatur nisi sint fugit, consectetur tempore. Molestias dignissimos at obcaecati excepturi distinctio alias?
+                    </p>
+        
+                    <hr class="my-2">
+        
+                    <h1 class="text-1xl font-bold text-gray-900 capitalize">Location</h1>
+                    <p class="text-gray-500 leading-tight text-base">
+                        Tech Junction
+                    </p>
+        
+                    <hr class="my-2">
+                    <h1 class="text-1xl font-bold text-gray-900 capitalize">Contact</h1>
+                    <h1 class="text-sm  my-1 font-bold text-gray-700 capitalize">Telephone</h1>
+                    <p class="text-gray-500 leading-tight text-base">
+                      024XXXXXXXX
+                    </p>
+                    <a class="bg-gray-400 text-gray-500  my-1">Click to reveal</a>
+                    <h1 class="text-sm font-bold text-gray-700 capitalize">Email</h1>
+                    <p class="text-gray-500 leading-tight text-base">
+                      example@gmail.com
+                    </p>
+                    <h1 class="my-1 text-sm font-bold text-gray-700 capitalize">Social Media</h1>
+                </div> 
 
-                        <button class="mt-2 rounded w-full text-center bg-green-500 text-white text-semibold p-2">View Details</button>
-                    </div>
-                </div>
 
-                <div class="mr-2 shadow-md rounded-t-lg bg-white">
-                    <img class="h-44 rounded-t-lg" src="images/headerbanner.png" alt="">
-                    <div class="m-2">
-                        <p class="text-green-500 font-semibold">Category</p>
-                        <p class="text-gray-700 font-semibold">Name</p>
-                        <p class="text-gray-700 mt-2 font-semibold">price</p>
-
-                        <button class="mt-2 rounded w-full text-center bg-green-500 text-white text-semibold p-2">View Details</button>
+                <div class="flex flex-col w-full my-4 justify-center">
+                    <div class="w-full ">
+                        <aside class="shadow-md border-2 border-green-500 bg-white p-4">
+                            <h2 class="text-1xl text-bold text-gray-900 capitalize font-bold">Ashantiweb safety tips</h2>
+                            <p class="font-normal text-gray-500">How to stay safe</p>
+                            <ul class="list-inside list-disc text-gray-700">
+                                <li>do something</li>
+                                <li>do another thing</li>
+                            </ul>
+                        </aside>
+        
+                        <aside class="shadow-md bg-white p-4 mt-4">
+                            <small class="font-light text-sm text-gray-500">promotion</small>
+                            <h2 class="text-1xl text-bold text-gray-900 capitalize font-bold">Ashatiweb ADvantage</h2>
+                            <p class="font-semibold text-gray-600">Get your online and boost your sales bla bla...</p>
+                            <button class="mt-2 rounded w-full text-center bg-green-500 text-white text-semibold p-2">Add my business</button>
+                        </aside>
                     </div>
                 </div>
             </div>
         </div> 
         
-        <div class="mx-2 mb-4">
-            <div class="w-full shadow-md bg-white rounded mt-4 p-4">
-                <h1 class="text-1xl font-bold text-gray-900 capitalize">About Shop</h1>
-                <p class="text-gray-500 leading-tight text-base">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque veritatis repudiandae nemo tenetur ut. A debitis optio consequatur nisi sint fugit, consectetur tempore. Molestias dignissimos at obcaecati excepturi distinctio alias?
-                </p>
-    
-                <hr class="my-2">
-    
-                <h1 class="text-1xl font-bold text-gray-900 capitalize">Location</h1>
-                <p class="text-gray-500 leading-tight text-base">
-                    Tech Junction
-                </p>
-    
-                <hr class="my-2">
-                <h1 class="text-1xl font-bold text-gray-900 capitalize">Contact</h1>
-                <h1 class="text-sm  my-1 font-bold text-gray-700 capitalize">Telephone</h1>
-                <p class="text-gray-500 leading-tight text-base">
-                  024XXXXXXXX
-                </p>
-                <a class="bg-gray-400 text-gray-500  my-1">Click to reveal</a>
-                <h1 class="text-sm font-bold text-gray-700 capitalize">Email</h1>
-                <p class="text-gray-500 leading-tight text-base">
-                  example@gmail.com
-                </p>
-                <h1 class="my-1 text-sm font-bold text-gray-700 capitalize">Social Media</h1>
-            </div> 
-        </div>
+       
       
 
 
         
 
-        <!-- <div class="flex flex-col w-full my-8 justify-center">
-            <div class="w-full mr-2 ml-2 mt-4">
-                <aside class="shadow-md border border-green-500 bg-white p-4 mt-4">
-                    <h2 class="text-1xl text-bold text-gray-900 capitalize font-bold">Ashantiweb safety tips</h2>
-                    <p class="font-normal text-gray-500">How to stay safe</p>
-                    <ul class="list-inside list-disc text-gray-700">
-                        <li>do something</li>
-                        <li>do another thing</li>
-                    </ul>
-                </aside>
-
-                <aside class="shadow-md bg-white p-4 mt-4">
-                    <small class="font-light text-sm text-gray-500">promotion</small>
-                    <h2 class="text-1xl text-bold text-gray-900 capitalize font-bold">Ashatiweb ADvantage</h2>
-                    <p class="font-semibold text-gray-600">Get your online and boost your sales bla bla...</p>
-                    <button class="mt-2 rounded w-full text-center bg-green-500 text-white text-semibold p-2">Add my business</button>
-                </aside>
-            </div>
-        </div> -->
+        
 
 
 
