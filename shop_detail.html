@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title class="title"></title>
     <link rel="stylesheet" href="style.css">
 
     <style>
@@ -31,7 +31,7 @@
           </style>
 </head>
 <body class="font-sans bg-gray-100">
-    <div class="m-4">
+    <div>
         <section class="mx-auto flex flex-col md:flex-row justify-start max-w-5xl">
             <section class="md:w-3/4 w-full">
                 <div class="shadow-md mx-2 relative">
@@ -64,7 +64,7 @@
                     <!-- smaller images under description -->
                     <div class="flex">
                       <div>
-                        <img class="image1 description h-24 opacity-50 hover:opacity-100 cursor-pointer" src="#" onclick="currentSlide(1)" alt="Dog's Nose">
+                        <img class="image1 description h-24 opacity-50 hover:opacity-100 cursor-pointer" src="#" onclick="currentSlide(1)" alt="Product Name">
                       </div>
                       <div>
                         <img class="image2 description h-24 opacity-50 hover:opacity-100 cursor-pointer" src="#" onclick="currentSlide(2)" alt="Lawnmower">
@@ -84,30 +84,30 @@
                   <div class="mt-4 mx-2">
                     <div  class="w-full flex flex-col sm:flex-row justify-between shadow-md bg-white lg:ml-0 rounded lg:mt-0 mt-4 p-4">
                         <section class="w-full sm:w-1/2">
-                            <div class="mt-2 flex">
-                                <p class="font-thin mt-2 text-gray-500">Posted 7 days ago</p>
-                                <p class="font-thin mt-2 text-gray-500">mallam junction</p>
+                            <div class="mt-2 flex justify-between mr-2">
+                                <p class="font-thin mt-2 text-gray-500 posted_at"></p>
+                                <p class="font-thin mt-2 text-gray-500 municipal"></p>
                               </div>
     
                               
                             <div class="w-full  flex-col mt-4 justify-center">
-                                <h1 class="text-2xl leading-none font-bold text-gray-900 capitalize">Product Name</h1>
+                                <h1 class="text-2xl leading-none font-bold text-gray-900 capitalize product_name"></h1>
         
-                                <h2 class="text-1xl leading-none font-semibold text-gray-600 capitalize mt-4">Description</h2>
-                                <p class="font-normal mt-2 text-gray-600">Product Description</p>
+                                <h2 class="text-1xl leading-none font-thin text-gray-400 capitalize mt-4">Description</h2>
+                                <p class="product_description font-normal mt-2 text-gray-600"></p>
                             </div>
                         </section>
 
                         <section class="w-full sm:w-1/2  mx-0 border-l-0 sm:border-l-2 sm:border-t-0 border-t-2 mt-4 pt-4 pl-0 sm:pl-4 border-gray-100">
                             <h1 class="text-2xl font-bold text-gray-900 capitalize">Contact</h1>
                             <h1 class="text-sm  my-1 font-bold text-gray-700 capitalize">Telephone</h1>
-                            <p class="text-gray-500 leading-tight text-base">
-                            024XXXXXXXX
+                            <p class="phone text-gray-500 leading-tight text-base">
+                          
                             </p>
-                            <a href="tel:0559133733" class="text-white bg-green-500 p-1 my-1 inline-block rounded-md">Click to call</a>
+                            <a id="tel-link" class="text-white bg-green-500 p-1 my-1 inline-block rounded-md">Click to call</a>
                             <h1 class="text-sm font-bold text-gray-700 capitalize">Email</h1>
-                            <p class="text-gray-500 leading-tight text-base">
-                            example@gmail.com
+                            <p class="email text-gray-500 leading-tight text-base">
+                           
                             </p>
                             <h1 class="my-1 text-sm font-bold text-gray-700 capitalize">Social Media</h1>
                         </section>
@@ -115,14 +115,10 @@
                         
                     </div>
                   </div>
-                   
-                   
 
-
-                    <h1 class="text-1xl leading-none font-bold text-gray-900 capitalize lg:mt-0 mt-4 p-4">More products from so so and so shop</h1>
-
-                    <div class="grid lg:grid-cols-3 grid-cols-2 gap-4 mx-4">
-                        <div class="ml-2 rounded-t-lg shadow-md bg-white">
+                    <h1 class="text-1xl leading-none font-bold text-gray-900 capitalize lg:mt-0 mt-4 p-4">More products from <span class="shop_name"></span></h1>
+                    <div class="wrapper grid lg:grid-cols-3 grid-cols-2 gap-4">
+                        <!-- <div class="ml-2 rounded-t-lg shadow-md bg-white">
                             <img class="w-full rounded-t-lg" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYVFRgSFRUYGBgYGhoYGBgZEhgYGhoZGBgaGRgVGBgcIS4lHB4rHxgYJjgmKy8xNTU1GiQ7QDszPy40NTEBDAwMEA8QHBISGjEhJCE0NjE0NDQxNDQxNDQ0NDQ0NDE2MTQ0MTQ0NDQ0NDQ0NDQ0NDQxNDQ0NDQ0NDQ0MTQ0NP/AABEIAPsAyQMBIgACEQEDEQH/xAAcAAAABwEBAAAAAAAAAAAAAAAAAQIDBAUGBwj/xABDEAACAQIDBQQHBQUHBAMAAAABAgADEQQSIQUGMUFRImFxgQcTMkJSkaFysbLB8GKCkqLRFCMzNHPC4SRTY/EVF7P/xAAZAQEAAwEBAAAAAAAAAAAAAAAAAQMEAgX/xAAiEQEBAAICAQQDAQAAAAAAAAAAAQIRAyExEjJBcRMiUWH/2gAMAwEAAhEDEQA/AOtwQQ4BQ4IcAocEECu27tilhKLYis1kQcObMfZVRzYzz9vDvLX2lVu5K01PYpITkToT8Ta+0fKw0lv6V94GxWL/ALHTN6dBilhwarwdj9n2e6zdZD2Ns9UUC1zzM4zy9MWceHqqr/8AgK1SwRQB3m0LE7m4pVzBFcdEa5+Rtfym8wFKXacJlvPlK1/gxscJemVJVgQRoQQQQehB4QKv6/Kdn2pu/QxKn1idrk66Ovnz8DcTne391a2FJYjPT+MDgP2193x4d4Mvw5Zl/lZ8+K4/6z4TXSO00+RjlJOfL6j+ssFw4OoHS4+5h1/9jSWqlaaB6frpNZuJvTVwNUKXZsOx/vKZuwUHjUQcmHGw9oXHGxFXSRWBHMcf6iBKJvm53t5+H6+sD0rSqK6h1IKsAQQbggi4IPMERcwXou21npNhWPapap19Wx9n91jbwKzfSXIoIcEAoUOCAmCHCgFBDggKgghwBBBBAErd4tpDDYariD7iMwHVrdlfMkDzllOeemjH5MEKQOtWoAeHsrqb37yvygcg2Apeo9ViWbmTxLOSWPj/AFmqwgtczN7GrhFCZTcnMx7zwHkLTSoptcc+Eo5Wrh1pa4fHpT1dgviY4N5qJbKgZ/sr/W0yVfBk3dzLHYPqswsULDkQT534Sq4TW/K2ZW3XhudlY9KmhDITwDDQ+DDSWr4TMpUju15g8jImArqygOqsp7gR5GXFEjgOEjGT4c5WuRbz7sGgxqU0OQ+0mvZ+z3eHCZoORw/XUEdZ6CxNFWBVlBB0IIuCO+co3y3cVHZ6OnMpy8B0l+OfxVGWPzGQrYg3BHEfd0Mdw2KzX68fG0razEGzCxHEfrjCRypDdPr1EtVtbu9tg4bEJXW9lNnHxI2jC3hr426T0HSqBlDKbhgGB6gi4M8vUq9jble48CP6Gd49Gu0vXYFATdqRak2vJbMn8jL8oiK1kEEElAQocEAoUOCAmCHCgLggggCHChwBOSenCoLUUN9FZh0zG418hOtzkfpwQkUzyAU8P2nUgHzWCMNRxqZUCovsqW01vbXXxvNXu9hTX1t2V08+QmK3Zwr1LhCAT2BcXNm425WE7PsXZoo0VRRwGp6nmbzPy6nTVxb8ua71K6syAW5A8Be8Xu9hVOVGRD1LDOfIfmflNjt/ZdNxduPKUeAw5RrLwlUz1jqLvR6rutPhsEiWyFxoONRm4C3vXmh2ehlVs61heXi1wBpGPndRnOtF15gN7cOxBIH0/PrNnUxF5AxNHN33tpFy7c449duR4TdariX07KjixGg6AD3j3S/o7p4OldWpVsSy+2Q5ULprlC2v538ZutooKaIFBF24qNF0JzuByuPrKTYO063r2oYhVzhWLOANVC6MSNCOGvfJ/JlXePFjretuZbxYNKNRfUszUnQMhb2gMzKUa3EqQRfmLTe+hLaP97iKBOjIlRV70bIx+Tp8vGYffAhaiURxpqxfUaNUdnyeKqVHjeWvomxGXaNMXtnSolut1zW/lv5TTjeptj5JJlZHoSCCCdqxQQ4UAQocBgJghwoCocKHAEEEEATAemDB58H6y3shlJvwBtUBP71IDxab+QNubOXEYerh34VEZeF7G3ZbyIB8oHId08ItFgLDshQetiPa/ivfxE1zb0UFqrhmZ0Y6a0myE2uBmIsfHh3zDgOUpvqHyhH7nTsOD++jSy2TjlzlqjngAt1JABJuCfOZM53a3YaskTN4a2WtZCclh4BuYH0MVgaNzeOY2krkahgdQQbywwWHtaU1fvUTqNOw0klSbQkXSO01EnSu5CWnFquscaMVnsNI1pzvZIxasQuYEG9793L6N8pkd6N58NhswotTeswyhUsQvfUYe6OOXmbcrkVe81B6WErHNnDX0LHQVKiDPbrcgDuY9TOZnQC36vb+ku48Je645OT03WI6tRmZ3YlmZiWY8SzG5Y95N5odwK2TaGFb9u38aMl/5pnDLPdupkxNFujr99yT3TSyvU8ESjXAPWKkuQggggFBDhQCggggKggggCAQQQBBBBA4nWxCpisVhyPYYV071dE9YvdZiDbvMrMPgy1TNUZ8pAsgqFFAIvbs6yHvfj/VbVeoTcAhWA+ErlYd/ZIPylrVF346aAeHKU59NXBktl2IjBXR3RhqMtRiPMMTeaLZ4YABvnIuywMoEuUsBM1tvloyp4cIkGNNXAjLYodYcpueRcVUJIUcT9O+NK7Nw0kujRA8eZkVHhzj0oYgoKdFTZXGZx8WQjKPC7X8h0nOuJ/XKdA9K6n11E8sj/iF/wApglWa+Kfqzct/YhhH8DUyuhvbtC542B0J+RMZYRQXl+tZYreqtlVs9NG6qD5EXA+smTObh4z1uBw1S9y1NQemdOw/8yt8u6aOS5CCCCAIUOCAUKHBAOCCCAIIIIAkfH4oUqb1DwRGbxyi9vHukiU286lqLIPgqOfBEJH85Q+UDzDtPEtUq1Kje07u7eLMSePjNlu5tOlUREdwjqAvaIGbKLAgnjpymRr4e1NH95ncHXkLWNvM/KQSJzcfVNO8crjdx3DC10QXDA999I8do394eRvOETR7FxjqoFzbxlGfHqeWjHm9V8OppVLm1/rLHDYE8SZjtl4u5Bv9Zt8BXJAtKtLbek2nQsIrLHEMJocbc89K+FvSpVR7rlD4OLg/NfrOY2+6ds39wnrMDWHNF9YP3CGP0BnEi00cN/VTyzsLQQH9fOAcZaqdw9DmKz4Nk/7VZ18nVXH8zP8AOdFnKvQg5KYocs6N55GH5fWdVkxFCCCCEBBBBAKCCCAcEEEAQQQ4AldtKkXbJ8VKsg6Xb1YA+/5SxkfFEDK50CtqegZSt/mRA8vGmWpKhGqnnxAsAQdev4ZDfC2/XjLraTAPWKjs+sqZdLdnO+XytKtq3P8AXCcO9K11sbS92ZRJVfCUdix7zNZs2nZROeS9O+Kbq22ZhWm62MCALmZjZycDNTgNJlt7a9ai9UxUYR9I4GkuNGMXRDoyNqrKVbwYWP0M874zDtTqPSb2kZkPiptf6Xno4icx9JW675jjKKlrgeuUC5FhYVAOYsAD0sD1Is4stXV+VfJjub/jnymKVecj03k2lwvNOmd1/wBCtMClWbmahHkqrYnzYzp85t6KTkREPvo7D+INc9+pHgJ0mSihBBBCAggggFBBBAOCCCAIcEEATLb57UVaT0ixRLf37j3U0LU06uwIHdmHUSRvJvVh8LTYmque1lUHMQTpmKjpx1twnFN5t5HxjimgK01JyICWZmY3Lv8AE5JuT1J6yK6kVWLr53dgoUOWIUeytzcKO4DSPpuzVeh/aBomfJbKb/aPQcRfrbrLfd3dt/7SiVlKgBSV52dWt9QL/wDE7Hg8CioFVRltbLbS3QiRMbYm5SOC4XY2VgpB7Q0NveXX8Ob6S8p7MZQCuo4/+p0zHbp0XHYvTNwRbtKGBuCAdePfItHdh0JyOjodQpzKVPMDQgj9d8oyxz+2jDLCMbsytlfI2k1WHWPYjdh2IbILg8Qy/nLGhs1wLFD9D9xlVwy/lW+vHXk3Sj63jq4N/gb5R9cM/JD8wPvMmYZfxxc8f6YRYTpeTEwT87Dz/pJFLBKurdo/T5TvHiyqu8mMZEbiYbEJV9ZSVc5JR0RVdTe+cOBe3cbgzn+8Po9xGCptVDrWpr7RVWV1X4yuvZ6kHTjwuR3e8S6E9POascZJpnyy3due7i4j/psBVP8A3KmHYjkL1PV37uX706ZKChu/Tpp6ukMiesWtlQWUOrBjYcgSOA66Wlz6xug+snSD0EaFXqLeccVgeEgHBBBAKCAwQDhwSo2ztMqRSQ9thcn4FPP7R5fPpAlYvaKpce0w91eR/aPL7+6ZDeKnWxYyF3pp8NNyt/tMLFvoO6TsNRCMLe9oe8ngT33+8yYyTv0xLnyejmkxuzvfjxmk2buxRwi+spoCyi5JALadD+Uuito4jEi3WNQ2p8PQV8WKg1/u1e/7JNQJ95miy6CN4TCog7KgE8bAC/j85JI0hFIFQxYqRuAiA+tQRwOOsiARxRAk5h1gzd8ZEUJAdzCEXiLQQFZosmNrxjloCHeNZzyEfKCIzAQGsjHiYtKOXW+sPMTw0gI0kh6nUvoeMdkQSSrXF5zQcEEEgCtUCKztwUFj4AXMwmCqs7vUbi7En8h4AWHlNLvTiMmHYc3IQeep+ikecz2x0uQs6gseMmK9xeVVRylVRxDaWlmlrsvwt94DfnJCwgMdRBG46g0gOWgtBeDNCCGEMCLIvIe08atCi9d+CIzkXtew0Ud5Nh5wlJtDAmA2Bv8AVMTiaWH9QiK7EE+sZiLIz6aAe7G6u+uJqYs4bDilkaoKaMabMSL5S5OexHtNoBpIHRxFTnCb4YmtivU0WQI9TIhNMEhAdXJPRAXiKG+eIq4nIjolEuTmamvYpLdmckjjkBPjYQOlQTApvdicTiDSwaIEHF6ik2UHWq5uMq9Bx8+EClvvjKlU0qCU6hJbIBRbMyrc3Iz6dkX7oHT0GsXM5utjsbVZ/wC00lpqoGX+7dGZieRZyCAAb6cxNJCBWiCsciXEAoTQ4TCEkXj1A6HxjdoqgdT4RQ/BBBORlt8q13p0+gLnzNh9x+cr8Kcj036mxknaw9ZVrVB7hVB+7o31vGWp5qbFeKkG3ePync8BW8ZKOjjk6k+Ddk/fLPDNetWXoV/AJD2onrsOlQam1j498a2XiCalRubpTI8bWP3iErbPfhJAa2kgu+WyjzMBrgHLfxhCwUxYkWk95IUwgsTB+lbaeSjTwo41Wzt9imRYHxcqf3DNLX2qHxIwdI3cLnrsD/hpplS/xuSLDkt26X5VtzENtHaORDcO4o0j0RCbv3j238DIoqdmYpqVRaq+0oqBT0L06iBh4F83lLXYaeqpV8XwKr6il/qVgQzKeqUw5/fEjbepKuKrollRHZFA4BafYH4ZN20PVUqOF4FENaryPrKwDWbvVAi/OQknZINKhXxPvEDDU/t1Beow6FaYIv8A+QSnymx8P+Ze7bX1a0cJrekmZwNSa1WzuNOJUZEH2JI3p2X/AGZqFKwzCgpe3xs9Que/UkeAEDW7Yw9LAbPNKl7dcBC/vPmW7ubcstwByzCZrdj1+HY4ihh2qXUpf1TuouQWsV97QfPvje8u1/Xmiim606NMfvsis5+dl8VM027m9dKlSpYf1bACwdy62zMbu5FuFyxt00kja4B3amjVFCuyguoBAViLldSeHDykmZzE754ZPZLv9lLD5uREUd4sRV/wMC7A8HeoEW3W5Wx8jCGnhESpojHOQXbDUhzAp1KzeGYuig+RlnRRgO05Y9SFHyAHDxvAEJjA7WjLtciElZr8OEcQ6j5RCiKgSYIAYJyMlsWmXo1L6kkknv43gwQs9joHFu4mS9hpkzoedvqP+I1XpFHItcA3t3dRO0m6KFC9I+w9ynQONbfrvkbYtsxHD2h3jnY+BB+Uuq1IOgYHjqDzBEoKylKufgHsH7nGgbwIJHjaBM0Ynja/Ln4mOrXRfdF/G5kFqt7qOWn5xukbGEL6nWvKne/eAYLDNVFi7HJSU6guwNiR8KgFj1tbnJmHecr9K20C+KSjfs0qY0/bqdpj/CEkVC99GFI16OOvUZa1Uqr1NGcB1ft687s/nNPuxuRSwVX1y1Hd8hRcyqAua12AHOwt4Ezjm7e36uDq+tpEajK6Nco68crAc+hGo8CQehUfSoCuuE7XQYjs/PJcfKEtC+4GGeq1Z3qsXc1GUsmUlnzlSAl8upHHhJVfdDDNVOJfOzF/WMWqdm4bNqLDs93SYnGekbEvpTRKQPMDO/8AE3Z/lmfxe06tY3q1HfpmckDwXgPIQN/j/wD4mlVNdnNSoH9ZZKj1LuGz3Njk9rkTaUu8G81HEPnGEVmVcoepUfhckDIjAcSeZlBszZtbEtkooz20JAsq/ac6CbnY3o+RbPiXznjkQlU/efRm8svnIGJweHqYh8tOmWbjlRLBel+SjvJm02TuI5s2IcIPgSzN4Fz2R5BvGbbC4VKainTRUUcFVQo8bDn3yQJIr8BsPD0bFKa5h77dtvEM3DytLOEDDhA4DBCMCPi2sM3SNKDYH5xWKF7C3E6+Wo+oECN3yUnF74sRIi1WQHUOkVEKLRU5FZSQjiL+MVXRWsbkMNP+Jz/aO28Rha9SklQsqswVX7fZvpqdeFuBEtNnb6F9KuHb7SG/8jf1M5nLjvvpZ+LLW520qUSt8pFjxHDzErNqpxuOIsZNwu1aL6K4BPuuCh8g1r+UZ2uOyb9JZLL4cWWXtmNjmqHqB1upIyt5ayxtYyJhKpFSwPZK6i/MHQ/fLB1iFSsO85L6SsKyY53N7VER1PLsqEIHgU+onVKJjG3NhUcbTFOqCCtyjqQHQnQ2voQdLg6Gw5gEK5cJQyTTabz/AOrKl+ziky9TQa/yzfnNDsf0bYWnd6zPXIHA9hLjW+VTmPm1u6RpLn+xNkV8TpQps+ti3BF4e050HW3HoDOi7D9HtNLPiX9Y3HIhKoDpxOjP/L4TZYKgqU0RFVEUWVVUKoHQAaCO30k6QTh6KIopoqoq6BVUKoHQAaCOkxFLrFQDihEiKAgGDFAxIEOAqETCvEsYDVQXhInhKuptikHdS5urFSAjHUaHUDrFLthPdV28go+pv9Jzc8Z8rJhlfhcIIb1VWwZgCxsoJALHoOplJV2lUYdmyeAzH5sLfSV2Ew4OJpOxLNm9pmLH2W0ueA7pVebHck7dzhurb02OWHDglqlyXfZLY2p3lT80U/nEbOk30iU7Yq/xIh+hX/bIGzjoJj5fNb+LvGLkLcSp2ljHpjsOVHw8V/hOkukGkoNujQzjG2Xp1ZLOz2wcVUrMzBB/dpnbLfVc1icp6X5cr9JpFfMBaV/orpXeuxGmRF/iZrj+WWBwxpu9M+4xA+zxU/wkTbhbZ2xZyTKyF9AOJNpYNobdBIeAXM9/h1j1ap2iZZFaWr3IUcTJWIbKluuki7Kp8ah58I9fO/cJKEtRZQI2TfSHVeHQTnAd4CEsDGHIBrFxKCGYChDhCGIBGNVDYE9AT8o8ZE2n/hP9h/wmQmeXP8Ex4nidT4njLWhKrDC0taBmCvRT14Q8B/maXi30RzCXhD2d/mKfi/8A+bznH3T7c5e2/VauCCCegwOaeksf9Sh/8a/jeVezuAlr6Sz/ANQn+mv43lXswaCY+b3N3D7F9TGko9tppL6kNJT7aXSVx2v/AEXUbU6z9WRf4Qx/3SfvC49ce5VB+V/uIj24GGyYRT8bu3yOT/ZK7eA3xNRepT8CTdh1jGHLvKn8B2ULdYwt3YKOZi8Q+VAokjYtLjUPlLXCwrMEQKOkLDEKuvE6yFWqZ37pKLX8oQeHaaSr2kejYR3MICxATCziFSN9ZAfETeB3ETTMB0RUSDDvAEj45bo46o/4THxCK3+v3SExzsJYywoCRnSxt0NvlJOHmHJ6G+k9YeB/zFM/tH6ow/OJWHhzarTP7aj5m35zme6faL4v01kEOFN7A5p6TP8AM0/9IfjeV+yxoJO9JX+ZT/SX8byJszlMfN7m7h9i9pDSVW2U0lvT4Sq2vwMrjtv93aeXDUR+wrfxDN+co9vU7YnN1RW+9f8AbNLsz/Bp/wCmn4BKPeb2kbnlIv3XGn1Pzm+MG+6pK9TM1h4S5d/V07c7SiwOrjxlntPlO4imEqnjJuGJYyt5S0wXsSUJgNzaOLI9KSEgCo3KSEFhI1L2zJLQEOY7TGkYPtSSsgHATChwDF4sRKxS84GHxa9tx0dvxGLoROO/xqn22++OUeEw5+a34+2JKNAzWZW+Flb5MD+UQsOr7J8JXtLZGFEpwX7I+6KnoPPf/9k=" alt="">
                             <div class="m-2">
                                 <p class="text-green-500 font-semibold">Category</p>
@@ -164,7 +160,7 @@
         
                                 <button class="mt-2 rounded w-full text-center bg-green-500 text-white text-semibold p-2">View Details</button>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
             </section>
     
@@ -172,32 +168,31 @@
                 <div class="mx-4">
                     <div class="w-full shadow-md bg-white lg:ml-0 rounded lg:mt-0 mt-4 p-4">
                         <div class="w-full flex-col text-center justify-center">
-                            <img src="images/logo.jpg"  class="border-4 mx-auto border-green-500 h-32 rounded-full" alt="">
-                            <h1 class="text-2xl mtm-2 leading-none font-bold text-gray-900 capitalize">so so and so shop</h1>
+                            <img src="images/logo.jpg"  class="logo_image_el border-4 mx-auto border-green-500 aspect-w-4 w-32 h-32 rounded-full" alt="">
+                            <h1 class="shop_name text-2xl mtm-2 leading-none font-bold text-gray-900 capitalize"></h1>
                         </div>
         
         
                         <hr class="my-2">
                         <h1 class="text-1xl font-bold text-gray-900 capitalize">About Shop</h1>
-                        <p class="text-gray-500 leading-tight text-base">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque veritatis repudiandae nemo tenetur ut. A debitis optio consequatur nisi sint fugit, consectetur tempore. Molestias dignissimos at obcaecati excepturi distinctio alias?
+                        <p class="about_shop text-gray-500 h-auto text-base">
+                          
                         </p>
-            
-                        <hr class="my-2">
+                      
 
-                        <div class="hidden">
+                        <!-- <div class="hidden">
                             <h1 class="text-1xl font-bold text-gray-900 capitalize">Contact</h1>
                             <h1 class="text-sm  my-1 font-bold text-gray-700 capitalize">Telephone</h1>
                             <p class="text-gray-500 leading-tight text-base">
-                            024XXXXXXXX
+                           
                             </p>
                             <a href="tel:0559133733" class="text-white bg-green-500 p-1 my-1 inline-block rounded-md">Click to call</a>
                             <h1 class="text-sm font-bold text-gray-700 capitalize">Email</h1>
-                            <p class="text-gray-500 leading-tight text-base">
-                            example@gmail.com
+                            <p class="email text-gray-500 leading-tight text-base">
+                            
                             </p>
                             <h1 class="my-1 text-sm font-bold text-gray-700 capitalize">Social Media</h1>
-                        </div>
+                        </div> -->
                         
                         
                     </div>
@@ -226,9 +221,175 @@
             </section>
         </section>
     </div>
-      
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"> </script>
 
       <script>
+
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        const params = Object.fromEntries(urlSearchParams.entries());
+
+        let ad_name = params.product_name;
+        axios.get(`https://ashantiweb.com/api/ads/${ad_name}`)
+        .then((r) =>  {
+            console.log(r);
+            handleResponse(r);
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+
+        function handleResponse(r){
+            let data = r.data;
+           
+            //displayHeaderPicture(data.cover_picture);
+            setLogo(data.advertiser.picture);
+            setAboutShop(data.advertiser.description);
+            setShopName(data.advertiser.name);
+            setEmail(data.advertiser.email);
+            setPhone(data.advertiser.phone);
+            setTitle(data.advertiser.name);
+
+
+            setProductName(data.name);
+            setProductDescription(data.description);
+
+            setAds(data.byuser);
+
+            postedAt(data.date);
+
+            setMunicipal(data.district.name);
+
+
+            displayImage(data.picture);
+
+        }
+
+        function displayImage(picture){
+          queryElement(".image1").style.content = `url(${picture})`;
+        }
+
+        function postedAt(date){
+          queryElement(".posted_at").textContent = date;
+        }
+
+        function setMunicipal(municipal){
+          queryElement(".municipal").textContent = municipal;
+        }
+
+        function setProductName(name){
+          queryElement('.product_name').textContent = name
+        }
+
+        function setProductDescription(description){
+          queryElement('.product_description').textContent = description;
+        }
+
+        function displayHeaderPicture(picture){
+            let headerImageEl = queryElement("#header_banner_image");
+            headerImageEl.setAttribute('src', `${picture}`);
+        }
+
+        function setLogo(logo){
+            let logoImageEl = queryElement('.logo_image_el');
+            logoImageEl.setAttribute('src', `${logo}`);
+        }
+
+        function setAboutShop(about_string){
+            let aboutShopEl = queryElement('.about_shop');
+            aboutShopEl.textContent = about_string;
+        }
+
+        function setShopName(shop_name){
+            let shopNameEls = document.querySelectorAll(".shop_name");
+            shopNameEls.forEach(shopNameEl => {
+              shopNameEl.textContent = shop_name;
+            });
+        }
+
+        function setEmail(email){
+            let emailEl = queryElement(".email");
+            emailEl.textContent = email;
+        }
+
+        function setPhone(phone){
+            let phoneEl = queryElement(".phone");
+            phoneEl.textContent = phone;
+
+
+            let telLink = queryElement("#tel-link");
+            console.log("tel lingk", telLink);
+            telLink.href = `tel:${phone}`;
+        }
+
+        function queryElement(string){
+            return document.querySelector(string);
+        }
+
+        function setTitle(shop_name){
+            let title = queryElement('.title');
+            title.textContent = `${shop_name} | Ashantiweb`;
+        }
+
+        function setAds(ads){
+           
+            let adContainer = queryElement(".wrapper");
+           // let adEl = queryElement("#ad");
+
+
+            // let sampleDiv = document.createElement("div");
+            //     let textNode = document.createTextNode("working");
+            //      let workingDiv = sampleDiv.appendChild(textNode)
+            //     adContainer.appendChild(workingDiv);
+
+            ads.forEach(ad => {
+                //console.log(generateAdWithTemplate(ad.picture, ad.name, ad.classified.name, ad.price));
+                adContainer.appendChild(generateAdWithTemplate(
+                   ad));
+            });
+        }
+
+
+        function generateAdWithTemplate(ad){
+            let  div = document.createElement('div');
+            div.classList.add("ml-2","rounded-t-lg","shadow-md","bg-white" , "flex", "flex-col", "justify-between");
+
+            let img = document.createElement('img');
+            img.classList.add("w-full", "rounded-t-lg", "h-64", "object-cover");
+            img.src = ad.picture;
+
+            let textWrapperDiv = document.createElement('div');
+            textWrapperDiv.classList.add("m-2");
+
+            // let adCategoryP = document.createElement('p');
+            // adCategoryP.classList.add("text-green-500", "font-semibold");
+            // adCategoryP.textContent = ad.category;
+
+            let adNameP = document.createElement('p');
+            adNameP.classList.add("text-gray-700", "font-semibold");
+            adNameP.textContent = ad.name;
+
+            let adPriceP = document.createElement('p');
+            adPriceP.classList.add("text-gray-700", "mt-2", "font-semibold");
+            adPriceP.textContent = `${ad.currency} ${ad.price}`;
+
+            let viewDetailsButton = document.createElement('a');
+            viewDetailsButton.href = `shop_detail.html?product_name=${ad.slug}`;
+            viewDetailsButton.classList.add("mt-2", "rounded","w-full", "text-center", "bg-green-500", "text-white", "text-semibold", "p-2", "inline-block");
+            viewDetailsButton.textContent = "View Details";
+
+            //add img into div    
+            div.appendChild(img);
+            div.appendChild(textWrapperDiv);
+            //textWrapperDiv.appendChild(adCategoryP);
+            textWrapperDiv.appendChild(adNameP);
+            textWrapperDiv.appendChild(adPriceP);
+            textWrapperDiv.appendChild(viewDetailsButton);
+
+            return div;
+        }
+
+
+
         //JS to switch slides and replace text in bar//
         var slideIndex = 1;
         showSlides(slideIndex);

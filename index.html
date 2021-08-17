@@ -15,7 +15,7 @@
         <div class="max-w-4xl mx-auto">
             <!-- <div class="logo w-32 mb-6 h-32 -mt-16">
             </div> -->
-            <img id="logo_image_el" class="z-10 border-4 -mt-16 relative rounded-full border-white h-32" src="" alt="logo">
+            <img id="logo_image_el" class="z-10 border-4 -mt-16 relative rounded-full aspect-w-4 border-white w-32 h-32" src="" alt="logo">
 
         </div>
     </header>
@@ -246,7 +246,7 @@
             adPriceP.textContent = `${ad.currency} ${ad.price}`;
 
             let viewDetailsButton = document.createElement('a');
-            viewDetailsButton.href = "shop_detail.html";
+            viewDetailsButton.href = `shop_detail.html?product_name=${ad.slug}`;
             viewDetailsButton.classList.add("mt-2", "rounded","w-full", "text-center", "bg-green-500", "text-white", "text-semibold", "p-2", "inline-block");
             viewDetailsButton.textContent = "View Details";
 
