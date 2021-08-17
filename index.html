@@ -10,7 +10,7 @@
 </head>
 <body class="font-sans bg-gray-100">
     <header class="w-full">
-        <img id="header_banner_image" style="object-fit: cover;" class="z-0 h-24 md:h-56 w-full" src="images/headerbanner.png" alt="header banner">
+        <img id="header_banner_image" style="object-fit: cover;" class="bg-green-500 z-0 h-24 md:h-56 w-full" src="" alt="header banner">
 
         <div class="max-w-4xl mx-auto">
             <!-- <div class="logo w-32 mb-6 h-32 -mt-16">
@@ -23,8 +23,8 @@
  
     <main class="max-w-4xl mx-auto">
         <div class="w-full lg:w-3/4 flex flex-start items-center my-2">
-            <input type="search" class="w-full ml-2 bg-purple-white shadow rounded border-0 p-3" placeholder="Search by name...">
-            <div class="text-purple-lighter mr-4 bg-purple-white shadow rounded border-0 p-4">
+            <input type="search" class="search_input w-full ml-2 bg-purple-white shadow rounded border-0 p-3" placeholder="Search by name...">
+            <div id="search_button" class="search_button text-purple-lighter mr-4 bg-purple-white shadow rounded border-0 p-4">
                 <svg version="1.1" class="h-4 text-dark bg-purple-white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 52.966 52.966" style="enable-background:new 0 0 52.966 52.966;" xml:space="preserve">
                     <path d="M51.704,51.273L36.845,35.82c3.79-3.801,6.138-9.041,6.138-14.82c0-11.58-9.42-21-21-21s-21,9.42-21,21s9.42,21,21,21
@@ -37,7 +37,7 @@
 
         <div class="w-full lg:flex mt-8">
             <div class="lg:w-3/4">
-                <div id="wrapper" class="grid lg:grid-cols-3 grid-cols-2 gap-4">
+                <div id="" class="wrapper grid lg:grid-cols-3 grid-cols-2 gap-4">
                     
                 </div>
 
@@ -84,7 +84,7 @@
                 <div class="w-full shadow-md bg-white rounded lg:mt-0 mt-4 p-4">
                     <h1 class="text-1xl font-bold text-gray-900 capitalize">About Shop</h1>
                     <p id="about_shop" class="text-gray-500 leading-tight text-base">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque veritatis repudiandae nemo tenetur ut. A debitis optio consequatur nisi sint fugit, consectetur tempore. Molestias dignissimos at obcaecati excepturi distinctio alias?
+                      
                     </p>
         
                     <hr class="my-2">
@@ -100,7 +100,7 @@
                     <p id="phone" class="text-gray-500 leading-tight text-base">
                       
                     </p>
-                    <a class="bg-gray-400 text-gray-500  my-1">Click to reveal</a>
+                    <a class="tel-link text-white bg-green-500 p-1 my-1 inline-block rounded-md">Click to call</a>
                     <h1 class="text-sm font-bold text-gray-700 capitalize">Email</h1>
                     <p id="email" class="text-gray-500 leading-tight text-base">
                     
@@ -111,20 +111,11 @@
 
                 <div class="flex flex-col w-full my-4 justify-center">
                     <div class="w-full ">
-                        <aside class="shadow-md border-2 border-green-500 bg-white p-4">
-                            <h2 class="text-1xl text-bold text-gray-900 capitalize font-bold">Ashantiweb safety tips</h2>
-                            <p class="font-normal text-gray-500">How to stay safe</p>
-                            <ul class="list-inside list-disc text-gray-700">
-                                <li>do something</li>
-                                <li>do another thing</li>
-                            </ul>
-                        </aside>
-        
                         <aside class="shadow-md bg-white p-4 mt-4">
                             <small class="font-light text-sm text-gray-500">promotion</small>
                             <h2 class="text-1xl text-bold text-gray-900 capitalize font-bold">Ashatiweb ADvantage</h2>
-                            <p class="font-semibold text-gray-600">Get your online and boost your sales bla bla...</p>
-                            <button class="mt-2 rounded w-full text-center bg-green-500 text-white text-semibold p-2">Add my business</button>
+                            <p class="font-semibold text-gray-600">Get your business online and boost your sales. Get in touch with Ashantiweb.</p>
+                            <a href="tel:0207797616" class="inline-block mt-2 rounded w-full text-center bg-green-500 text-white text-semibold p-2">Add my business</a>
                         </aside>
                     </div>
                 </div>
@@ -141,6 +132,34 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
+        let searchInput = queryElement(".search_input");
+        let searchButton = queryElement(".search_button");
+
+
+        searchInput.addEventListener('keyup', function(e){
+            console.log(e);
+        });
+
+
+        searchButton.addEventListener('click', function(e){
+            let typedValue = searchInput.value;
+            if(typedValue.length === 0){
+                return alert("please enter a search text");
+            }
+                
+            axios.get('https://ashantiweb.com/api/shops/sandx-kloset')
+            .then((r) =>  {
+               handleSearch(r, typedValue);
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+
+
+            setAds();
+
+        });
+
         axios.get('https://ashantiweb.com/api/shops/sandx-kloset')
         .then((r) =>  {
             console.log(r);
@@ -149,6 +168,20 @@
         .catch((e) => {
             console.log(e);
         });
+
+        function handleSearch(r, searchedTest){
+            let data = r.data;
+                
+           let ads = data.ads.filter(ad => {
+                return ad.name.includes(searchedTest);
+           })
+
+           if(ads.length === 0){
+              return alert("no product found matching search text");
+           }
+
+            setAds(ads);
+        }
          
         function handleResponse(r){
             let data = r.data;
@@ -192,6 +225,8 @@
         function setPhone(phone){
             let phoneEl = queryElement("#phone");
             phoneEl.textContent = phone;
+            
+             queryElement(".tel-link").href=`tel:${phone}`;
         }
 
         function queryElement(string){
@@ -205,14 +240,9 @@
 
         function setAds(ads){
            
-            let adContainer = queryElement("#wrapper");
-           // let adEl = queryElement("#ad");
+            let adContainer = queryElement(".wrapper");
 
-
-            // let sampleDiv = document.createElement("div");
-            //     let textNode = document.createTextNode("working");
-            //      let workingDiv = sampleDiv.appendChild(textNode)
-            //     adContainer.appendChild(workingDiv);
+            adContainer.innerHTML = "";
 
             ads.forEach(ad => {
                 //console.log(generateAdWithTemplate(ad.picture, ad.name, ad.classified.name, ad.price));
@@ -247,7 +277,8 @@
 
             let viewDetailsButton = document.createElement('a');
             viewDetailsButton.href = `shop_detail.html?product_name=${ad.slug}`;
-            viewDetailsButton.classList.add("mt-2", "rounded","w-full", "text-center", "bg-green-500", "text-white", "text-semibold", "p-2", "inline-block");
+            viewDetailsButton.classList.add("mt-2", "rounded","w-full", "text-center", "text-white", "text-semibold", "p-2", "inline-block");
+            viewDetailsButton.style.backgroundColor = "#f49a13";
             viewDetailsButton.textContent = "View Details";
 
             //add img into div    
