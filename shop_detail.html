@@ -10,7 +10,7 @@
     <style>
         /*each image is referenced twice in the HTML, but each image only needs to be updated in the CSS*/
         .image1 {
-          content: url("https://randomwordgenerator.com/img/picture-generator/52e4d7434f51a914f1dc8460962e33791c3ad6e04e5074417d2c7ed09f4acc_640.jpg")
+          content: url("https://previews.123rf.com/images/panychev/panychev1601/panychev160100526/51527087-crumpled-paper-blank-page-background.jpg")
         }
       
         .image2 {
@@ -31,7 +31,7 @@
           </style>
 </head>
 <body class="font-sans bg-gray-100">
-    <div>
+    <div class="mt-4">
         <section class="mx-auto flex flex-col md:flex-row justify-start max-w-5xl">
             <section class="md:w-3/4 w-full">
                 <div class="shadow-md mx-2 relative">
@@ -53,16 +53,17 @@
                     </div>
               
                     <!-- butttons -->
-                    <a class="absolute left-0 inset-y-0 flex items-center -mt-32 px-4 text-white hover:text-gray-800 cursor-pointer text-3xl font-extrabold" onclick="plusSlides(-1)">❮</a>
-                    <a class="absolute right-0 inset-y-0 flex items-center -mt-32 px-4 text-white hover:text-gray-800 cursor-pointer text-3xl font-extrabold" onclick="plusSlides(1)">❯</a>
+                    <!-- <a class="absolute left-0 inset-y-0 flex items-center -mt-32 px-4 text-white hover:text-gray-800 cursor-pointer text-3xl font-extrabold" onclick="plusSlides(-1)">❮</a>
+                    <a class="absolute right-0 inset-y-0 flex items-center -mt-32 px-4 text-white hover:text-gray-800 cursor-pointer text-3xl font-extrabold" onclick="plusSlides(1)">❯</a> -->
               
                     <!-- image description -->
-                    <div class="text-center text-white font-light tracking-wider bg-gray-800 py-2">
+                    <!-- <div class="text-center text-white font-light tracking-wider bg-gray-800 py-2">
                       <p id="caption"></p>
+                    </div> -->
                     </div>
               
                     <!-- smaller images under description -->
-                    <div class="flex">
+                    <!-- <div class="flex">
                       <div>
                         <img class="image1 description h-24 opacity-50 hover:opacity-100 cursor-pointer" src="#" onclick="currentSlide(1)" alt="Product Name">
                       </div>
@@ -79,7 +80,7 @@
                         <img class="image5 description h-24 opacity-50 hover:opacity-100 cursor-pointer" src="#" onclick="currentSlide(5)" alt="Lips">
                       </div>
                     </div>
-                  </div>
+                  </div> -->
 
                   <div class="mt-4 mx-2">
                     <div  class="w-full flex flex-col sm:flex-row justify-between shadow-md bg-white lg:ml-0 rounded lg:mt-0 mt-4 p-4">
@@ -95,6 +96,9 @@
         
                                 <h2 class="text-1xl leading-none font-thin text-gray-400 capitalize mt-4">Description</h2>
                                 <p class="product_description font-normal mt-2 text-gray-600"></p>
+
+                                <h2 class="text-1xl leading-none font-thin text-gray-400 capitalize mt-4">Price</h2>
+                                <p class="product_price font-normal mt-2 text-gray-600"></p>
                             </div>
                         </section>
 
@@ -104,7 +108,7 @@
                             <p class="phone text-gray-500 leading-tight text-base">
                           
                             </p>
-                            <a id="tel-link" class="text-white bg-green-500 p-1 my-1 inline-block rounded-md">Click to call</a>
+                            <a id="tel-link" style="background-color: #f49a13" class="text-white bg-green-500 p-1 my-1 inline-block rounded-md">Click to call</a>
                             <h1 class="text-sm font-bold text-gray-700 capitalize">Email</h1>
                             <p class="email text-gray-500 leading-tight text-base">
                            
@@ -163,12 +167,11 @@
                         </div> -->
                     </div>
             </section>
-    
             <section class="md:w-1/4 w-full">
-                <div class="mx-4">
+                <div class="">
                     <div class="w-full shadow-md bg-white lg:ml-0 rounded lg:mt-0 mt-4 p-4">
                         <div class="w-full flex-col text-center justify-center">
-                            <img src="images/logo.jpg"  class="logo_image_el border-4 mx-auto border-green-500 aspect-w-4 w-32 h-32 rounded-full" alt="">
+                            <img src="images/logo.jpg"  class="logo_image_el border-4 mx-auto border-orange-500 aspect-w-4 w-32 h-32 rounded-full" alt="">
                             <h1 class="shop_name text-2xl mtm-2 leading-none font-bold text-gray-900 capitalize"></h1>
                         </div>
         
@@ -198,21 +201,18 @@
                     </div>
                     
                     <div class="w-full mt-4">
-                        <aside class="shadow-md border-2 border-green-500 bg-white p-4">
-                            <h2 class="text-1xl text-bold text-gray-900 capitalize font-bold">Ashantiweb safety tips</h2>
-                            <p class="font-normal text-gray-500">How to stay safe</p>
-                            <ul class="list-inside list-disc text-gray-700">
-                                <li>do something</li>
-                                <li>do another thing</li>
-                            </ul>
-                        </aside>
+                      
         
-                        <aside class="shadow-md bg-white p-4 mt-4">
-                            <small class="font-light text-sm text-gray-500">promotion</small>
-                            <h2 class="text-1xl text-bold text-gray-900 capitalize font-bold">Ashatiweb ADvantage</h2>
-                            <p class="font-semibold text-gray-600">Get your online and boost your sales bla bla...</p>
-                            <button class="mt-2 rounded w-full text-center bg-green-500 text-white text-semibold p-2">Add my business</button>
-                        </aside>
+                      <div class="flex flex-col w-full my-4 justify-center">
+                        <div class="w-full ">
+                            <aside class="shadow-md bg-white p-4 mt-4">
+                                <small class="font-light text-sm text-gray-500">promotion</small>
+                                <h2 class="text-1xl text-bold text-gray-900 capitalize font-bold">Join Ashantiweb</h2>
+                                <p class="font-semibold text-gray-600">Get your business online and boost your sales. Get in touch with Ashantiweb.</p>
+                                <a href="tel:0207797616" style="background-color: #f49a13" class="inline-block mt-2 rounded w-full text-center text-white text-semibold p-2">Add my business</a>
+                            </aside>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 
@@ -221,6 +221,8 @@
             </section>
         </section>
     </div>
+
+
       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"> </script>
 
       <script>
@@ -252,6 +254,7 @@
 
             setProductName(data.name);
             setProductDescription(data.description);
+            setPrice(data.price, data.currency);
 
             setAds(data.byuser);
 
@@ -262,6 +265,10 @@
 
             displayImage(data.picture);
 
+        }
+
+        function setPrice(price, currency){
+          queryElement(".product_price").textContent = `${currency} ${price}`;
         }
 
         function displayImage(picture){

@@ -97,8 +97,8 @@
                     <hr class="my-2">
         
                     <h1 class="text-1xl font-bold text-gray-900 capitalize">Location</h1>
-                    <p class="text-gray-500 leading-tight text-base">
-                        Tech Junction
+                    <p class="address text-gray-500 leading-tight text-base">
+                     
                     </p>
         
                     <hr class="my-2">
@@ -107,7 +107,7 @@
                     <p id="phone" class="text-gray-500 leading-tight text-base">
                       
                     </p>
-                    <a class="tel-link text-white bg-green-500 p-1 my-1 inline-block rounded-md">Click to call</a>
+                    <a style="background-color: #f49a13;" class="tel-link text-white bg-green-500 p-1 my-1 inline-block rounded-md">Click to call</a>
                     <h1 class="text-sm font-bold text-gray-700 capitalize">Email</h1>
                     <p id="email" class="text-gray-500 leading-tight text-base">
                     
@@ -120,9 +120,9 @@
                     <div class="w-full ">
                         <aside class="shadow-md bg-white p-4 mt-4">
                             <small class="font-light text-sm text-gray-500">promotion</small>
-                            <h2 class="text-1xl text-bold text-gray-900 capitalize font-bold">Ashatiweb ADvantage</h2>
+                            <h2 class="text-1xl text-bold text-gray-900 capitalize font-bold">Join Ashantiweb</h2>
                             <p class="font-semibold text-gray-600">Get your business online and boost your sales. Get in touch with Ashantiweb.</p>
-                            <a href="tel:0207797616" class="inline-block mt-2 rounded w-full text-center bg-green-500 text-white text-semibold p-2">Add my business</a>
+                            <a href="tel:0207797616" style="background-color: #f49a13" class="inline-block mt-2 rounded w-full text-center text-white text-semibold p-2">Add my business</a>
                         </aside>
                     </div>
                 </div>
@@ -144,13 +144,34 @@
 
 
         searchInput.addEventListener('keyup', function(e){
-            console.log(e);
+            let typedValue = e.target.value;
+
+            axios.get('https://ashantiweb.com/api/shops/sandx-kloset')
+                .then((r) =>  {
+                    console.log(r);
+                    handleSearch(r, typedValue)
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+           
+            if(typedValue.length === 0){
+                axios.get('https://ashantiweb.com/api/shops/sandx-kloset')
+                .then((r) =>  {
+                    console.log(r);
+                    handleResponse(r);
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+            }
         });
 
 
         searchButton.addEventListener('click', function(e){
             let typedValue = searchInput.value;
             if(typedValue.length === 0){
+                
                 return alert("please enter a search text");
             }
                 
@@ -176,16 +197,17 @@
             console.log(e);
         });
 
+
+
         function handleSearch(r, searchedTest){
             let data = r.data;
                 
            let ads = data.ads.filter(ad => {
-                return ad.name.includes(searchedTest);
+                return ad.name.toLowerCase().includes(searchedTest.toLowerCase());
            })
 
            if(ads.length === 0){
               return alert("no product found matching search text");
-              setAds(data.ads);
            }
 
             setAds(ads);
@@ -200,8 +222,13 @@
             setEmail(data.email);
             setPhone(data.phone);
             setTitle(data.name);
+            setAddress(data.address);
 
             setAds(data.ads);
+        }
+
+        function setAddress(address){
+           queryElement(".address").textContent = address ?? "N/A";
         }
 
         function displayHeaderPicture(picture){
