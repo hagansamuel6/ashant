@@ -30,7 +30,26 @@
         }
           </style>
 </head>
-<body class="font-sans bg-gray-100">
+<body class="font-sans bg-gray-200 relative">
+    <a href="https://wa.me/+233591662617" class="fixed mr-8 mb-8 sm:mr-8 sm:mb-8 bottom-0 right-0">
+      <img src="images/whatsapp.png" alt="whatsapp" class="w-12 sm:w-16 sm:h-16">
+    </a>
+
+   <nav class=" h-16 shadow-md w-full  flex  items-center" style="background-color: #202127">
+      <div class="max-w-5xl w-full h-8 mx-auto flex justify-start">
+        <a href="https://ashantiweb.com">
+          <img class="w-24" src="https://ashantiweb.com/images/logo.png?750da2599a4643df1cdbab490a59a319" alt="logo">
+        </a>
+      </div>
+    </nav>
+      
+    <nav class="h-16 shadow-md w-full flex items-center bg-white">
+      <div class="max-w-5xl w-full h-8 mx-auto flex justify-start">
+        <a href="index.html" class="text-2xl ml-2 leading-none font-bold text-gray-900 capitalize">Sandx Kloset</a>
+      </div>
+    </nav>
+
+
     <div class="mt-4">
         <section class="mx-auto flex flex-col md:flex-row justify-start max-w-5xl">
             <section class="md:w-3/4 w-full">
@@ -114,6 +133,9 @@
                            
                             </p>
                             <h1 class="my-1 text-sm font-bold text-gray-700 capitalize">Social Media</h1>
+                            <a href="https://wa.me/+233591662617">
+                              <img src="images/whatsapp.png" alt="whatsapp" class="w-8 h-8">
+                            </a>
                         </section>
 
                         
@@ -174,7 +196,6 @@
                             <img src="images/logo.jpg"  class="logo_image_el border-4 mx-auto border-orange-500 aspect-w-4 w-32 h-32 rounded-full" alt="">
                             <h1 class="shop_name text-2xl mtm-2 leading-none font-bold text-gray-900 capitalize"></h1>
                         </div>
-        
         
                         <hr class="my-2">
                         <h1 class="text-1xl font-bold text-gray-900 capitalize">About Shop</h1>
@@ -381,7 +402,8 @@
 
             let viewDetailsButton = document.createElement('a');
             viewDetailsButton.href = `shop_detail.html?product_name=${ad.slug}`;
-            viewDetailsButton.classList.add("mt-2", "rounded","w-full", "text-center", "bg-green-500", "text-white", "text-semibold", "p-2", "inline-block");
+            viewDetailsButton.classList.add("mt-2", "rounded","w-full", "text-center", "text-white", "text-semibold", "p-2", "inline-block");
+            viewDetailsButton.style.backgroundColor = "#f49a13";
             viewDetailsButton.textContent = "View Details";
 
             //add img into div    

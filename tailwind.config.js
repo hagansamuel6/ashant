@@ -5,6 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        "custom-black": "#202127",
         custom_orange: {
           light: '#F3F2EE',
           DEFAULT: '#F3F2EE',
