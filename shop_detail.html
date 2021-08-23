@@ -9,9 +9,9 @@
 
     <style>
         /*each image is referenced twice in the HTML, but each image only needs to be updated in the CSS*/
-        .image1 {
+        /* .image1 {
           content: url("https://previews.123rf.com/images/panychev/panychev1601/panychev160100526/51527087-crumpled-paper-blank-page-background.jpg")
-        }
+        } */
       
         .image2 {
           content: url("https://randomwordgenerator.com/img/picture-generator/55e8d146425bb10ff3d8992cc12c30771037dbf852547848702a7fd19545_640.jpg")
@@ -58,9 +58,11 @@
                 <div class="shadow-md mx-2 relative">
                     <!-- large image on slides -->
                     <div class="mySlides hidden">
-                      <div class="image1 w-full object-cover"></div>
+                      <div class="w-full object-cover">
+                        <img class="image1" src="https://previews.123rf.com/images/panychev/panychev1601/panychev160100526/51527087-crumpled-paper-blank-page-background.jpg">
+                      </div>
                     </div>
-                    <div class="mySlides hidden">
+                    <!-- <div class="mySlides hidden">
                       <div class="image2 w-full object-cover"></div>
                     </div>
                     <div class="mySlides hidden">
@@ -71,7 +73,7 @@
                     </div>
                     <div class="mySlides hidden">
                       <div class="image5 w-full object-cover"></div>
-                    </div>
+                    </div> -->
               
                     <!-- butttons -->
                     <!-- <a class="absolute left-0 inset-y-0 flex items-center -mt-32 px-4 text-white hover:text-gray-800 cursor-pointer text-3xl font-extrabold" onclick="plusSlides(-1)">❮</a>
@@ -295,7 +297,7 @@
         }
 
         function displayImage(picture){
-          queryElement(".image1").style.content = `url(${picture})`;
+          queryElement(".image1").src = picture;
         }
 
         function postedAt(date){
@@ -436,7 +438,7 @@
         function showSlides(n) {
           var i;
           var slides = document.getElementsByClassName("mySlides");
-          var dots = document.getElementsByClassName("description");
+          //var dots = document.getElementsByClassName("description");
           var captionText = document.getElementById("caption");
           if (n > slides.length) {
             slideIndex = 1
@@ -447,12 +449,12 @@
           for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
           }
-          for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" opacity-100", "");
-          }
+          // for (i = 0; i < dots.length; i++) {
+          //   dots[i].className = dots[i].className.replace(" opacity-100", "");
+          // }
           slides[slideIndex - 1].style.display = "block";
-          dots[slideIndex - 1].className += " opacity-100";
-          captionText.innerHTML = dots[slideIndex - 1].alt;
+          //dots[slideIndex - 1].className += " opacity-100";
+          //captionText.innerHTML = dots[slideIndex - 1].alt;
         }
       </script>
 </body>
